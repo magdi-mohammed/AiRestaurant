@@ -388,27 +388,27 @@ $(document).ready(function () {
     chiefSlider();
     
     // scroll magic initialize
-//    var controller = new ScrollMagic.Controller();
-//    
-//    // build a scene 
-//    var scene1 = new ScrollMagic.Scene({
-//            triggerElement: '.our-story article',
-//            duration: '100%',
-//            triggerHook: .7, // from the top to bottom of the screen 0 - 1
-//            reverse: true // true is the default .. reverse the animation every scroll
-//        
-//        })
-//            // toggle a class when the scene start
-//            .setClassToggle('.our-story article', 'x-offset-left')
-//            // require a plugin .. help in debug
-//            .addIndicators({
-//                name: 'x-offset-left',
-//                colorTrigger: '#f00',
-//                indent: 200,
-//                colorStart: '#75c695',
-//                colorEnd: '#3b579d'
-//                
-//            })
-//            .addTo(controller);
+    var controller = new ScrollMagic.Controller();
+    
+    // build a scene 
+    var scene1 = new ScrollMagic.Scene({
+            triggerElement: '.our-story article',
+            duration: '100%',
+            triggerHook: .7, // from the top to bottom of the screen 0 - 1
+            reverse: true // true is the default .. reverse the animation every scroll
+        
+        })
+            // toggle a class when the scene start
+            .setClassToggle('.our-story article', 'x-offset-left')
+            // require a plugin .. help in debug
+            .addIndicators({
+                name: 'x-offset-left',
+                colorTrigger: '#f00',
+                indent: 200,
+                colorStart: '#75c695',
+                colorEnd: '#3b579d'
+                
+            })
+            .addTo(controller);
     
 });
