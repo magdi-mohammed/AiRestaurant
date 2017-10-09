@@ -390,25 +390,32 @@ $(document).ready(function () {
     // scroll magic initialize
     var controller = new ScrollMagic.Controller();
     
-    // build a scene 
+    // build a scene - our story scene 1
     var scene1 = new ScrollMagic.Scene({
             triggerElement: '.our-story article',
             duration: '100%',
-            triggerHook: .7, // from the top to bottom of the screen 0 - 1
+            triggerHook: 0.5, // from the top to bottom of the screen 0 - 1
             reverse: true // true is the default .. reverse the animation every scroll
         
         })
             // toggle a class when the scene start
             .setClassToggle('.our-story article', 'x-offset-left')
             // require a plugin .. help in debug
-            .addIndicators({
-                name: 'x-offset-left',
-                colorTrigger: '#f00',
-                indent: 200,
-                colorStart: '#75c695',
-                colorEnd: '#3b579d'
-                
-            })
+//            .addIndicators({
+//                name: 'x-offset-left',
+//                colorTrigger: 'orange',
+//                indent: 400,
+//                colorStart: '#75c695',
+//                colorEnd: '#3b579d'
+//            })
             .addTo(controller);
     
+    // our story scene 2
+    var scene2 = new ScrollMagic.Scene({
+            triggerElement: '.our-story .video',
+            triggerHook: 0.3
+        
+        })
+            .setClassToggle('.our-story .ratio-holder .ratio-content img', 'fade-in')
+            .addTo(controller);
 });

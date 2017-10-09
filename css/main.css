@@ -475,7 +475,17 @@ section {
 
 .ratio-holder .ratio-content img {
     width: 100%;
-    min-height: 100%
+    min-height: 100%;
+
+}
+
+.our-story .ratio-holder .ratio-content img {
+    opacity: 0;
+    transition: all 0.3s ease-in
+/*
+    transform: translateX(-100%);
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
+*/
 }
 
 /* video controler button */
@@ -932,12 +942,15 @@ footer .social-media  li a:active {
 /* end footer */
 
 /* start of scroll magic classes component */
-/*
 
 .x-offset-left {
     margin-left: 0 !important;
+    transform: translateX(0) !important;
     opacity: 1 !important;
 }
-*/
+
+.fade-in {
+    opacity: 1 !important
+}
 
 /* end of scroll magic classes component */
