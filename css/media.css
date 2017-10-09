@@ -1,0 +1,235 @@
+/* 0 to mobile */
+
+@media (max-width : 767px) {
+    
+    nav:not(.active) .nav-list {opacity: 0;visibility: hidden}
+    nav:not(.active) .nav-list .list-item {top: 15px}
+    nav .nav-btn {display: block}
+    
+    header.sticky {
+        color: #fff
+    }
+    
+    nav .nav-list {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        text-align: center;
+        width: 200px;
+        padding: 0;  
+        transition: all .5s ease-in-out
+        
+    }
+    
+    nav.active .nav-btn {
+        background-color: #333;
+        padding: 6px;
+        border-radius: 10%;
+        transition: all .3s ease-in-out
+    }
+    
+    header.sticky nav.active .nav-btn .btn-line { 
+        background-color: #fff !important
+    }
+    
+    nav .nav-list .list-item {
+        margin-left: 0 !important;
+        margin-bottom: 5px;
+        background-color: #333 !important;
+        display: block;
+        padding: 0;
+        position: relative;
+        top: 0;
+        transition: all .3s ease-in-out
+    }
+    
+    nav .nav-list .list-item:hover,
+    nav .nav-list .list-item.active {
+        background-color: #000 !important
+    }
+    
+    
+    nav .nav-list .list-item a {
+        
+        display: block;
+        padding: 20px 0 !important
+    }
+    
+    .nav-list .list-item:last-of-type .fa-angle-right {
+        margin-left: -50px !important
+    }
+    
+    .header .heading {
+        font-size: 30px;
+        line-height: 1.4
+    }
+    
+    .main-section .title {
+        text-align: center
+    }
+
+    .main-section .info {
+        text-align: center
+    }
+    
+    .main-section .title {
+        margin-top: 50px;
+    }
+    
+    .main-section .dish img {
+        display: none
+    }
+    
+    .our-story article {
+        text-align: center
+    }
+    
+    .our-story article h2 {
+        font-size: 30px;
+        line-height: 1.2
+    }
+    
+    .our-story article .botton {
+        margin-top: 50px;
+    }
+    
+    .our-story .video {
+        float: none;
+        margin: auto;
+        padding-top: 60px;
+        width: 60%
+    }
+    
+    .review .chief {
+        width: 40%
+    }
+    
+    .review .context {
+        text-align: center;
+        margin-top: 30px
+    }
+    
+    .chief-slider {
+        padding-right: 40px !important
+    } 
+    
+    .event {
+        max-width: 100%;
+        margin: auto;
+        
+    }
+    
+    .events-card-holder {
+        margin: auto;
+        max-width: 450px
+    }
+    
+    .event .event-image {
+        padding: 0 15px;
+    }
+    
+    .event.event-details {
+        margin-bottom: 20px !important
+    }
+    
+    .arrow-parent.arrow-left:before {
+        bottom: 100%;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 12px solid ;
+        border-color: transparent transparent #fff transparent
+    }
+
+    .arrow-parent.arrow-right:before {
+        bottom: 100%;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 12px solid ;
+        border-color: transparent transparent #fff transparent 
+    }
+    
+    .contact-us .contact-info .border-bottom:before {
+        content: none;
+        display: none
+    }
+} 
+
+/* small screens */
+
+@media (min-width : 768px) and (max-width : 991px) {
+    .main-section .dish img {
+        width: 300px;
+        height: 300px
+    }
+    
+    .main-section .title {
+        text-align: center
+    }
+    
+    .section-info .info .time {
+        font-size: 12px
+    }
+    
+    .our-story article h2 {
+        font-size: 30px
+    }
+    
+    .review .chief {
+        margin: auto;
+        width: 40%
+    }
+    
+    .review .context {
+        text-align: center;
+        margin-top: 30px
+    }
+    
+    .chief-slider {
+        padding-right: 40px !important
+    } 
+    
+    .contact-us .contact-info .border-bottom:before {
+        content: none;
+        display: none
+    }
+}
+
+/* meduim screens */
+
+@media (min-width : 992px) and (max-width : 1199px) {
+    .main-section .dish img {
+        width: 400px;
+        height: 400px
+    }
+    
+    section.review {
+        padding-bottom: 0
+    }
+    
+}
+
+/* all large screens */
+
+@media (min-width : 1200px) {
+
+    section.review {
+        padding-bottom: 0
+    }
+}
+
+/*
+    // Custom
+*/
+
+/* from small to above */
+
+@media (min-width : 768px) {
+    
+    .contact-us .contact-info {
+        position: relative;
+        z-index: 1;
+        bottom: -30px;   
+    }
+}
