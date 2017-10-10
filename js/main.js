@@ -7,6 +7,25 @@ $(document).ready(function () {
         $window = $(window),
         li = $('nav .nav-list .list-item'),
         previousScroll = 0;
+    
+    // start preloader functions 
+    
+    var span = $('.letter'),
+        tlSmell = new TimelineMax({repeat : -1}),
+        tlLoading = new TimelineMax({repeat: -1, repeatDelay: 0.5});
+        
+    tlSmell
+        .staggerFromTo($('svg .smell'), 3, {y: 50, autoAlpha: 0.5}, {y: -20, autoAlpha: 1}, 1);
+    
+    // tween max pol body 
+    TweenMax.fromTo($('svg #body'), 3, {x: -1, repeat : -1, yoyo : true}, {x: 1, repeat : -1, yoyo : true}); /* repeatDelay: 1*/
+//    TweenMax.fromTo($('svg #cap'), 0.3, {transform: 'rotate(5deg)', repeat : -1, yoyo : true}, {transform: 'rotate(-5deg)', repeat : -1, yoyo : true});
+    
+    tlLoading
+        .staggerFromTo(span, 0.5, {y: -5}, {y : 5}, 0.1);
+    
+    // end preloader functions 
+    
      
     // menu icon i mobile screen
     $('.nav-btn').on('click', function () {
@@ -427,7 +446,7 @@ $(document).ready(function () {
     var tl = new TimelineMax();
     
     tl
-        .fromTo('.menu .header .heading', 0.3, {y : -20, autoAlpha : 0}, {y : 0, autoAlpha : 1})
+        .fromTo('.menu .header .heading', 0.3, {y : -20, autoAlpha : 0}, {y : 0, autoAlpha : 1}, 0.3)
         .fromTo('.cards-group', 0.3, {x : -20, autoAlpha : 0}, {x : 0, autoAlpha : 1}, '+=.15');
         
     // menu section scene 
@@ -452,7 +471,7 @@ $(document).ready(function () {
                {autoAlpha : 1, x : 0}, 0.1)
         .fromTo($('.testimonials .quote .author'), 0.3, {autoAlpha: 0}, {autoAlpha: 1});
         
-    // testimonials  section scene 
+    // testimonials section scene 
     
     var testimonialsScene = new ScrollMagic.Scene({
             triggerElement: '.testimonials',
@@ -462,4 +481,51 @@ $(document).ready(function () {
         })
             .setTween(tlTestimonials)
             .addTo(controller);
+    
+    // review section tween
+    
+    var reviewTween = TweenMax.to($('#review-sec .chief .ratio-holder'), 1, {y: '90%'});
+    
+    // review section scene 
+    
+    var reviewScene = new ScrollMagic.Scene({
+            triggerElement: '#review-sec',
+            triggerHook: 0,
+            duration : 400
+        
+        })
+            .setTween(reviewTween)
+            .addIndicators({
+                name: 'review-pin',
+                colorTrigger: 'orange',
+                indent: 400,
+                colorStart: '#75c695',
+                colorEnd: '#3b579d'
+            })
+            .addTo(controller);
+});
+
+$(window).on('load', function () {
+    "use strict";
+    
+    function loadFunc() {
+        if ($('.pace').hasClass('pace-inactive')) {
+        // gsap main sec animation 
+        
+            var tlMain = new TimelineMax();
+            
+            tlMain
+                .to ($('.loading-wrapper'), 1, {y: -100, autoAlpha: 0})
+                .to($('.pre-loader'), 1, {autoAlpha: 0})
+                .from($('header nav .logo'), 1, {x: -20, autoAlpha: 0})
+                .from($('header nav .nav-list'), 1, {x: 20, autoAlpha: 0}, 0)
+                .from($('.main-section .heading'), 1, {y: -20, autoAlpha: 0})
+                .from($('.main-section .section-info .info'), 1, {y: -20, autoAlpha: 0}, '-=0.5')
+                .from($('.main-section .section-info .dish'), 1, {x: -20, autoAlpha: 0}, '-=0.5');
+            clearInterval(interval);
+        }
+    }
+    
+    var interval = setInterval(loadFunc, 50);
+    
 });

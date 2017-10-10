@@ -7,9 +7,86 @@
     -webkit-box-sizing : border-box
 }
 
-body {
-    
+body, html {
+    height: 100%
 }
+
+/* start loader */
+
+.pre-loader {
+    width: 100%;
+    height: 100%;
+    background-color: gold;
+    z-index: 99999;
+    position: fixed
+}
+
+svg {
+    height: 20vh;
+    width: 100%;
+}
+
+.loading-wrapper {
+    position: absolute;
+    text-align: center;
+    padding-top: 50px;
+    min-height: 200px;
+    min-width: 250px;
+    left: 50%;
+    top: 50%;
+    right: 0;
+    bottom: 0; 
+    transform: translate(-50%, -50%)
+}
+
+svg #cap {
+    transform-origin: center;
+    animation: capAnimation 1s ease-in-out infinite
+}
+
+@keyframes capAnimation {
+    0% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+svg #cap,
+svg #body {
+    fill:#606060
+}
+
+svg #elem-1 {}
+svg #elem-2 {}
+svg #elem-3 {}
+
+svg .smell {
+    opacity: 1;
+    fill:#F5F1C4 
+}
+
+.loading-wrapper .loading-text {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: #0e0e19;
+}
+
+.loading-wrapper .loading-text .letter {
+    display: inline-block;
+    cursor: pointer;
+    text-shadow: 0px 2px 8px rgb(170, 173, 0)
+}
+
+/* end preloader */
 
 /* main font */
 .play-fair {
