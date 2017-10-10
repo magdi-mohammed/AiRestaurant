@@ -399,7 +399,7 @@ $(document).ready(function () {
         
         })
             // toggle a class when the scene start
-            .setClassToggle('.our-story article', 'x-offset-left')
+            .setClassToggle('.our-story article', 'x-offset-left-fade-in')
             // require a plugin .. help in debug
 //            .addIndicators({
 //                name: 'x-offset-left',
@@ -415,10 +415,10 @@ $(document).ready(function () {
     // our story scene 2
     var scene2 = new ScrollMagic.Scene({
             triggerElement: '.our-story .video',
-            triggerHook: 0.3
+            triggerHook: 0.5
         
         })
-            .setClassToggle('.our-story .ratio-holder .ratio-content img', 'fade-in')
+            .setClassToggle('.our-story .video', 'x-offset-left-fade-in')
             .addTo(controller);
     
     // menu section scroll magic scene and a gsap time line - amazing 
