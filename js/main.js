@@ -426,7 +426,7 @@ $(document).ready(function () {
     
     var tl = new TimelineMax();
     
-    tl 
+    tl
         .fromTo('.menu .header .heading', 0.3, {y : -20, autoAlpha : 0}, {y : 0, autoAlpha : 1})
         .fromTo('.cards-group', 0.3, {x : -20, autoAlpha : 0}, {x : 0, autoAlpha : 1}, '+=.15');
         
@@ -438,5 +438,28 @@ $(document).ready(function () {
         
         })
             .setTween(tl)
+            .addTo(controller);
+    
+    // testimonials  section
+    // time line max - a tween for the testimonials  section
+    
+    var tlTestimonials  = new TimelineMax();
+    
+    tlTestimonials
+        .fromTo($('.testimonials .icon'), 0.3, {y : 50, autoAlpha: 0}, {y: 0, autoAlpha: 1})
+        .staggerFromTo($('.testimonials .quote .context span'), 0.1,
+               {autoAlpha : 0, x : -20},
+               {autoAlpha : 1, x : 0}, 0.1)
+        .fromTo($('.testimonials .quote .author'), 0.3, {autoAlpha: 0}, {autoAlpha: 1});
+        
+    // testimonials  section scene 
+    
+    var testimonialsScene = new ScrollMagic.Scene({
+            triggerElement: '.testimonials',
+            triggerHook: 0.5,
+            reverse: false
+        
+        })
+            .setTween(tlTestimonials)
             .addTo(controller);
 });

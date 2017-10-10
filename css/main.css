@@ -694,6 +694,10 @@ section {
     font-weight: 600
 }
 
+.testimonials .quote .context span {
+    margin: -1px
+}
+
 .testimonials .quote .author {
     font-size: 14px;
     font-weight: 400;
