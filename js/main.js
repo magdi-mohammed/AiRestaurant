@@ -409,6 +409,8 @@ $(document).ready(function () {
 //                colorEnd: '#3b579d'
 //            })
             .addTo(controller);
+
+
     
     // our story scene 2
     var scene2 = new ScrollMagic.Scene({
@@ -417,5 +419,24 @@ $(document).ready(function () {
         
         })
             .setClassToggle('.our-story .ratio-holder .ratio-content img', 'fade-in')
+            .addTo(controller);
+    
+    // menu section scroll magic scene and a gsap time line - amazing 
+    // time line max - a tween for the menu section
+    
+    var tl = new TimelineMax();
+    
+    tl 
+        .fromTo('.menu .header .heading', 0.3, {y : -20, autoAlpha : 0}, {y : 0, autoAlpha : 1})
+        .fromTo('.cards-group', 0.3, {x : -20, autoAlpha : 0}, {x : 0, autoAlpha : 1}, '+=.15');
+        
+    // menu section scene 
+    
+    var menuScene = new ScrollMagic.Scene({
+            triggerElement: '.menu',
+            triggerHook: 0.2
+        
+        })
+            .setTween(tl)
             .addTo(controller);
 });
