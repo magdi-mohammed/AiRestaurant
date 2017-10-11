@@ -14,8 +14,8 @@ $(document).ready(function () {
     // start preloader functions 
     
     var span = $('.letter'),
-        tlSmell = new TimelineMax({repeat : -1}),
-        tlLoading = new TimelineMax({repeat: -1, repeatDelay: 0.5});
+        tlSmell = new TimelineMax({repeat : -1});
+//        tlLoading = new TimelineMax({repeat: -1, repeatDelay: 0.5});
         
     tlSmell
         .staggerFromTo($('svg .smell'), 3, {y: 50, autoAlpha: 0.5}, {y: -20, autoAlpha: 1}, 1);
@@ -24,8 +24,8 @@ $(document).ready(function () {
     TweenMax.fromTo($('svg #body'), 3, {x: -1, repeat : -1, yoyo : true}, {x: 1, repeat : -1, yoyo : true}); /* repeatDelay: 1*/
 //    TweenMax.fromTo($('svg #cap'), 0.3, {transform: 'rotate(5deg)', repeat : -1, yoyo : true}, {transform: 'rotate(-5deg)', repeat : -1, yoyo : true});
     
-    tlLoading
-        .staggerFromTo(span, 0.5, {y: -5}, {y : 5}, 0.1);
+//    tlLoading
+//        .staggerFromTo(span, 0.5, {y: -5}, {y : 5}, 0.1);
     
     // end preloader functions 
     
@@ -470,10 +470,8 @@ $(document).ready(function () {
     
     tlTestimonials
         .fromTo($('.testimonials .icon'), 0.3, {y : 50, autoAlpha: 0}, {y: 0, autoAlpha: 1})
-        .staggerFromTo($('.testimonials .quote .context span'), 0.1,
-               {autoAlpha : 0, x : -20},
-               {autoAlpha : 1, x : 0}, 0.1)
-        .fromTo($('.testimonials .quote .author'), 0.3, {autoAlpha: 0}, {autoAlpha: 1}, 0);
+        .from($('.testimonials .quote .context'), 0.5, {autoAlpha: 0, y: 50})
+        .fromTo($('.testimonials .quote .author'), 0.3, {autoAlpha: 0}, {autoAlpha: 1});
         
     // testimonials section scene 
     
@@ -488,7 +486,7 @@ $(document).ready(function () {
     
     // review section tween
     
-    var reviewTween = TweenMax.to($('#review-sec .chief .ratio-holder'), 1, {y: '90%'});
+    var reviewTween = TweenMax.to($('#review-sec .chief .ratio-holder'), 1, {x: '9%'});
     var reviewTimeLine = new TimelineMax();
     
     reviewTimeLine
@@ -500,7 +498,7 @@ $(document).ready(function () {
     var reviewScene1 = new ScrollMagic.Scene({
             triggerElement: '#review-sec',
             triggerHook: 0,
-            duration : 400
+            duration : 100
         })
             .setTween(reviewTween)
             .addTo(controller);
@@ -537,15 +535,10 @@ $(document).ready(function () {
     // contact us section tween
     
     var cuTimeLine = new TimelineMax();
-    var ciTimeLine = new TimelineMax();
     
     cuTimeLine
             .from($('#contact-us-sec .header '), 0.5, {y: -20, autoAlpha: 0})
             .from($('#contact-us-sec .contact-info'), 1, {y: -20}, 0);
-    
-    ciTimeLine
-            .from($('#contact-us-sec .contact-info .left'), 1, {x: -20}, 0)
-            .from($('#contact-us-sec .contact-info .right'), 1, {x: -20}, 0);
     
     // contact us section scene1
     
@@ -555,16 +548,6 @@ $(document).ready(function () {
             reverse: false
         })
             .setTween(cuTimeLine)
-            .addTo(controller);
-    
-    // contact us section scene2
-    
-    var contactusScene2 = new ScrollMagic.Scene({
-            triggerElement: '#contact-us-sec',
-            triggerHook: 0.4,
-            reverse: false
-        })
-            .setTween(ciTimeLine)
             .addTo(controller);
     
     // footer tween
