@@ -2,6 +2,10 @@
 
 @media (max-width : 767px) {
     
+    .xs-hidden {
+        visibility: hidden
+    }
+    
     nav:not(.active) .nav-list {opacity: 0;visibility: hidden}
     nav:not(.active) .nav-list .list-item {top: 15px}
     nav .nav-btn {display: block}
@@ -115,7 +119,8 @@
     
     .event {
         max-width: 100%;
-        margin: auto;
+        max-width: 80%;
+        margin-left: 10%
         
     }
     
@@ -148,6 +153,10 @@
         transform: translateX(-50%);
         border: 12px solid ;
         border-color: transparent transparent #fff transparent 
+    }
+    
+    #our-news-sec {
+        padding-bottom: 0
     }
     
     .contact-us .contact-info .border-bottom:before {
@@ -189,11 +198,13 @@
     .chief-slider {
         padding-right: 40px !important
     } 
+
     
     .contact-us .contact-info .border-bottom:before {
         content: none;
         display: none
     }
+    
 }
 
 /* meduim screens */

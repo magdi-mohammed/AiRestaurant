@@ -17,11 +17,15 @@
           <script src="js/html5shiv.min.js"></script>
           <script src="js/respond.min.js"></script>
         <![endif]-->
+        <!-- pace lib which uses ajax to get doc progress time -->
         <script src="js/vendor/pace.js"></script>
-        <link rel="stylesheet" href="js/vendor/pace-theme-loading-bar.css">
+        <!-- pace lib loading bar - css theme -->
+        <link rel="stylesheet" href="css/pace-theme-minimal.css">
     </head>
-        <body>
+        <body class="loaded-false">
+            
             <!-- start preloader -->
+            
             <div class="pre-loader">
                 <div class="loading-wrapper">
                     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -159,8 +163,8 @@
                                 <a class = "botton play-fair" href="#" ><div>Reservation</div>Reservation</a>
                             </article>
                         </div>
-                        <div class = "col-sm-6 col-xs-12" >
-                            <div class="video" >
+                        <div class = "col-sm-6 col-xs-hidden" >
+                            <div class="video xs-hidden" >
 <!--                                    ratio image -->
                                 <div class="ratio-holder" >
                                     <div class="ratio video-ratio" ></div>
@@ -288,7 +292,7 @@
         <!--                                item 4-->
 
                                         <div class="item col-xs-4" >
-                                            <div class="card" >
+                                            <div class="card text-center" >
                                                 <div class="card-image" >
 
             <!--                                    ratio image -->
@@ -299,7 +303,7 @@
                                                             <img src = "images/menu/img-3.jpg" alt="menu-image-3" width="" height="" >
                                                         </div>
                                                     </div> 
-                                                    <div class="card-price" >
+                                                    <div class="card-price play-fair" >
                                                         <span>&#36;30</span>
                                                     </div>
                                                 </div>
@@ -344,7 +348,7 @@
                         <i class="fa fa-quote-left" ></i>
                     </div>
                     <div class="quote" >
-                        <p class="context play-fair">
+                        <p class="context play-fair context-lg">
                             <span>I</span>
                             <span>l</span>
                             <span>o</span>
@@ -389,6 +393,7 @@
                             <span>l</span>
                             <span>y</span>
                         </p>
+                        <p class="context-sm play-fair">i love cooking for my self and cooking <br> for my family</p>
                         <span class="author">- Al Roker -</span>
                     </div>
                 </div>
@@ -664,17 +669,15 @@
                 <p class="copyrights">
                 <span class="icon fa fa-copyright"></span> Ai Restaurant.
                 <br>
-                Design by LoganCee. All Rights Resevered
+                Design by LoganCee - Development by : <a target="_blank" href="https://www.facebook.com/profile.php?id=100004264394622">Magdi</a> <br> All Rights Resevered
                 </p>
             </footer>
 <!--            end footer-->
             <script src = "js/jquery-3.2.1.min.js"></script>
             <script src="js/vendor/TweenMax.min.js"></script>
-            <script src="js/vendor/TimelineMax.min.js"></script>
             <script src="js/vendor/ScrollMagic.min.js"></script>
             <script src="js/vendor/animation.gsap.min.js"></script>
-            <script src="js/vendor/debug.addIndicators.min.js"></script>
+            <script src="js/vendor/parallax-hover.js"></script>
             <script src="js/main.js"></script>
-            <script src="js/bootstrap.min.js"></script>
         </body>
 </html>

@@ -1,6 +1,9 @@
 /*global $*/
 $(document).ready(function () {
     "use strict";
+    
+    $('.section-info .dish img').parallax();
+    
     var mainSection = $('.main-section'),
         header = $('header'),
         nav = $('nav'),
@@ -67,7 +70,7 @@ $(document).ready(function () {
                     // if this is first li
                     if (!$(this).is(':last-of-type')) {
 
-                        if ($(document).scrollTop() >= nextLiTarget.offset().top - 10) {
+                        if ($(document).scrollTop() >= nextLiTarget.offset().top - nav.height()) {
                 //            nextLiTarget.addClass('animte'); // add class animate one the div when reaching it 
                             nextLi.addClass('active').prev().removeClass('active');
                         }
@@ -412,7 +415,6 @@ $(document).ready(function () {
     // build a scene - our story scene 1
     var scene1 = new ScrollMagic.Scene({
             triggerElement: '.our-story article',
-            duration: '100%',
             triggerHook: 0.5, // from the top to bottom of the screen 0 - 1
             reverse: false // true is the default .. reverse the animation every scroll
         
@@ -435,7 +437,7 @@ $(document).ready(function () {
     var scene2 = new ScrollMagic.Scene({
             triggerElement: '.our-story .video',
             triggerHook: 0.5,
-            reserve: false
+            reverse: false
         
         })
             .setClassToggle('.our-story .video', 'x-offset-left-fade-in')
@@ -454,8 +456,8 @@ $(document).ready(function () {
     
     var menuScene = new ScrollMagic.Scene({
             triggerElement: '.menu',
-            triggerHook: 0.2,
-            reserve: false
+            triggerHook: 0.4,
+            reverse: false
         
         })
             .setTween(tl)
@@ -471,7 +473,7 @@ $(document).ready(function () {
         .staggerFromTo($('.testimonials .quote .context span'), 0.1,
                {autoAlpha : 0, x : -20},
                {autoAlpha : 1, x : 0}, 0.1)
-        .fromTo($('.testimonials .quote .author'), 0.3, {autoAlpha: 0}, {autoAlpha: 1});
+        .fromTo($('.testimonials .quote .author'), 0.3, {autoAlpha: 0}, {autoAlpha: 1}, 0);
         
     // testimonials section scene 
     
@@ -489,9 +491,9 @@ $(document).ready(function () {
     var reviewTween = TweenMax.to($('#review-sec .chief .ratio-holder'), 1, {y: '90%'});
     var reviewTimeLine = new TimelineMax();
     
-        reviewTimeLine
-            .from ($('#review-sec .context .header .heading'), 1, {y: 20, autoAlpha: 0})
-            .from ($('#review-sec .context .chief-review'), 1, {y: 20, autoAlpha: 0});
+    reviewTimeLine
+            .from($('#review-sec .context .header .heading'), 0.5, {y: 20, autoAlpha: 0})
+            .from($('#review-sec .context .chief-review'), 0.5, {y: 20, autoAlpha: 0}, '-=0.25');
     
     // review section scene1 
     
@@ -508,7 +510,7 @@ $(document).ready(function () {
     var reviewScene2 = new ScrollMagic.Scene({
             triggerElement: '#review-sec',
             triggerHook: 0.5,
-            reserve: false
+            reverse: false
         
         })
             .setTween(reviewTimeLine)
@@ -518,16 +520,16 @@ $(document).ready(function () {
     
     var ournewsTimeLine = new TimelineMax();
     
-        ournewsTimeLine
-            .from ($('#our-news-sec .header '), 0.5, {y: -20, autoAlpha: 0})
-            .from ($('#our-news-sec .events'), 1, {y: -20});
+    ournewsTimeLine
+            .from($('#our-news-sec .header '), 0.5, {y: -20, autoAlpha: 0})
+            .from($('#our-news-sec .events'), 1, {y: -20});
     
     // ournews section scene1
     
     var ournewsScene = new ScrollMagic.Scene({
             triggerElement: '#our-news-sec',
             triggerHook: 0.7,
-            reserve: false
+            reverse: false
         })
             .setTween(ournewsTimeLine)
             .addTo(controller);
@@ -537,20 +539,20 @@ $(document).ready(function () {
     var cuTimeLine = new TimelineMax();
     var ciTimeLine = new TimelineMax();
     
-        cuTimeLine
-            .from ($('#contact-us-sec .header '), 0.5, {y: -20, autoAlpha: 0})
-            .from ($('#contact-us-sec .contact-info'), 1, {y: -20}, 0)
+    cuTimeLine
+            .from($('#contact-us-sec .header '), 0.5, {y: -20, autoAlpha: 0})
+            .from($('#contact-us-sec .contact-info'), 1, {y: -20}, 0);
     
-        ciTimeLine
-            .from ($('#contact-us-sec .contact-info .left'), 1, {x: -20}, 0)
-            .from ($('#contact-us-sec .contact-info .right'), 1, {x: -20}, 0);
+    ciTimeLine
+            .from($('#contact-us-sec .contact-info .left'), 1, {x: -20}, 0)
+            .from($('#contact-us-sec .contact-info .right'), 1, {x: -20}, 0);
     
     // contact us section scene1
     
     var contactusScene = new ScrollMagic.Scene({
             triggerElement: '#contact-us-sec',
             triggerHook: 0.5,
-            reserve: false
+            reverse: false
         })
             .setTween(cuTimeLine)
             .addTo(controller);
@@ -560,7 +562,7 @@ $(document).ready(function () {
     var contactusScene2 = new ScrollMagic.Scene({
             triggerElement: '#contact-us-sec',
             triggerHook: 0.4,
-            reserve: false
+            reverse: false
         })
             .setTween(ciTimeLine)
             .addTo(controller);
@@ -568,8 +570,8 @@ $(document).ready(function () {
     // footer tween
     var footerTimeLine = new TimelineMax();
     
-        footerTimeLine
-            .from ($('footer .logo'), 0.5, {y: -20, autoAlpha: 0})
+    footerTimeLine
+            .from($('footer .logo'), 0.5, {y: -20, autoAlpha: 0})
             .staggerFrom($('footer .links li'), 1, {y: -20, autoAlpha: 0}, 0.1)
             .staggerFrom($('footer .social-media li'), 1, {y: -20, autoAlpha: 0}, 0.1)
             .from($('footer .copyrights'), 1, {y: -20, autoAlpha: 0});
@@ -580,7 +582,7 @@ $(document).ready(function () {
     var footerScene = new ScrollMagic.Scene({
             triggerElement: 'footer',
             triggerHook: 0.8,
-            reserve: false
+            reverse: false
         })
             .setTween(footerTimeLine)
             .addTo(controller);
@@ -590,21 +592,29 @@ $(document).ready(function () {
 
 $(window).on('load', function () {
     "use strict";
+        
+    function pageLoaded() {
+        $('body').removeClass('loaded-false');
+    }
     
     function loadFunc() {
         if ($('.pace').hasClass('pace-inactive')) {
+            
+            if ($(window).scrollTop() > $(window).height()) {
+                $('body').removeClass('loaded-false');
+            }
+            
         // gsap main sec animation 
-        
-            var tlMain = new TimelineMax();
+            var tlMain = new TimelineMax({});
             
             tlMain
-                .to ($('.loading-wrapper'), 1, {y: -100, autoAlpha: 0})
+                .to($('.loading-wrapper'), 1, {y: -100, autoAlpha: 0})
                 .to($('.pre-loader'), 1, {autoAlpha: 0})
-                .from($('header nav .logo'), 1, {x: -20, autoAlpha: 0})
-                .from($('header nav .nav-list'), 1, {x: 20, autoAlpha: 0}, 2)
+//                .from($('header nav .logo'), 1, {x: -20, autoAlpha: 0})
+//                .from($('header nav .nav-list'), 1, {x: 20, autoAlpha: 0}, 2)
                 .from($('.main-section .heading'), 1, {y: -20, autoAlpha: 0})
                 .from($('.main-section .section-info .info'), 1, {y: -20, autoAlpha: 0}, '-=0.5')
-                .from($('.main-section .section-info .dish'), 1, {x: -20, autoAlpha: 0}, '-=0.5');
+                .from($('.main-section .section-info .dish'), 1, {x: -20, autoAlpha: 0, onComplete: pageLoaded}, '-=0.5');
             clearInterval(interval);
         }
     }
