@@ -414,7 +414,7 @@ $(document).ready(function () {
             triggerElement: '.our-story article',
             duration: '100%',
             triggerHook: 0.5, // from the top to bottom of the screen 0 - 1
-            reverse: true // true is the default .. reverse the animation every scroll
+            reverse: false // true is the default .. reverse the animation every scroll
         
         })
             // toggle a class when the scene start
@@ -434,7 +434,8 @@ $(document).ready(function () {
     // our story scene 2
     var scene2 = new ScrollMagic.Scene({
             triggerElement: '.our-story .video',
-            triggerHook: 0.5
+            triggerHook: 0.5,
+            reserve: false
         
         })
             .setClassToggle('.our-story .video', 'x-offset-left-fade-in')
@@ -453,7 +454,8 @@ $(document).ready(function () {
     
     var menuScene = new ScrollMagic.Scene({
             triggerElement: '.menu',
-            triggerHook: 0.2
+            triggerHook: 0.2,
+            reserve: false
         
         })
             .setTween(tl)
@@ -485,24 +487,105 @@ $(document).ready(function () {
     // review section tween
     
     var reviewTween = TweenMax.to($('#review-sec .chief .ratio-holder'), 1, {y: '90%'});
+    var reviewTimeLine = new TimelineMax();
     
-    // review section scene 
+        reviewTimeLine
+            .from ($('#review-sec .context .header .heading'), 1, {y: 20, autoAlpha: 0})
+            .from ($('#review-sec .context .chief-review'), 1, {y: 20, autoAlpha: 0});
     
-    var reviewScene = new ScrollMagic.Scene({
+    // review section scene1 
+    
+    var reviewScene1 = new ScrollMagic.Scene({
             triggerElement: '#review-sec',
             triggerHook: 0,
             duration : 400
-        
         })
             .setTween(reviewTween)
-            .addIndicators({
-                name: 'review-pin',
-                colorTrigger: 'orange',
-                indent: 400,
-                colorStart: '#75c695',
-                colorEnd: '#3b579d'
-            })
             .addTo(controller);
+    
+    // review section scene2 
+    
+    var reviewScene2 = new ScrollMagic.Scene({
+            triggerElement: '#review-sec',
+            triggerHook: 0.5,
+            reserve: false
+        
+        })
+            .setTween(reviewTimeLine)
+            .addTo(controller);
+    
+    // our news section tween
+    
+    var ournewsTimeLine = new TimelineMax();
+    
+        ournewsTimeLine
+            .from ($('#our-news-sec .header '), 0.5, {y: -20, autoAlpha: 0})
+            .from ($('#our-news-sec .events'), 1, {y: -20});
+    
+    // ournews section scene1
+    
+    var ournewsScene = new ScrollMagic.Scene({
+            triggerElement: '#our-news-sec',
+            triggerHook: 0.7,
+            reserve: false
+        })
+            .setTween(ournewsTimeLine)
+            .addTo(controller);
+    
+    // contact us section tween
+    
+    var cuTimeLine = new TimelineMax();
+    var ciTimeLine = new TimelineMax();
+    
+        cuTimeLine
+            .from ($('#contact-us-sec .header '), 0.5, {y: -20, autoAlpha: 0})
+            .from ($('#contact-us-sec .contact-info'), 1, {y: -20}, 0)
+    
+        ciTimeLine
+            .from ($('#contact-us-sec .contact-info .left'), 1, {x: -20}, 0)
+            .from ($('#contact-us-sec .contact-info .right'), 1, {x: -20}, 0);
+    
+    // contact us section scene1
+    
+    var contactusScene = new ScrollMagic.Scene({
+            triggerElement: '#contact-us-sec',
+            triggerHook: 0.5,
+            reserve: false
+        })
+            .setTween(cuTimeLine)
+            .addTo(controller);
+    
+    // contact us section scene2
+    
+    var contactusScene2 = new ScrollMagic.Scene({
+            triggerElement: '#contact-us-sec',
+            triggerHook: 0.4,
+            reserve: false
+        })
+            .setTween(ciTimeLine)
+            .addTo(controller);
+    
+    // footer tween
+    var footerTimeLine = new TimelineMax();
+    
+        footerTimeLine
+            .from ($('footer .logo'), 0.5, {y: -20, autoAlpha: 0})
+            .staggerFrom($('footer .links li'), 1, {y: -20, autoAlpha: 0}, 0.1)
+            .staggerFrom($('footer .social-media li'), 1, {y: -20, autoAlpha: 0}, 0.1)
+            .from($('footer .copyrights'), 1, {y: -20, autoAlpha: 0});
+    
+    
+    // footer scene
+    
+    var footerScene = new ScrollMagic.Scene({
+            triggerElement: 'footer',
+            triggerHook: 0.8,
+            reserve: false
+        })
+            .setTween(footerTimeLine)
+            .addTo(controller);
+    
+    // last of scroll magic scenes
 });
 
 $(window).on('load', function () {
@@ -518,7 +601,7 @@ $(window).on('load', function () {
                 .to ($('.loading-wrapper'), 1, {y: -100, autoAlpha: 0})
                 .to($('.pre-loader'), 1, {autoAlpha: 0})
                 .from($('header nav .logo'), 1, {x: -20, autoAlpha: 0})
-                .from($('header nav .nav-list'), 1, {x: 20, autoAlpha: 0}, 0)
+                .from($('header nav .nav-list'), 1, {x: 20, autoAlpha: 0}, 2)
                 .from($('.main-section .heading'), 1, {y: -20, autoAlpha: 0})
                 .from($('.main-section .section-info .info'), 1, {y: -20, autoAlpha: 0}, '-=0.5')
                 .from($('.main-section .section-info .dish'), 1, {x: -20, autoAlpha: 0}, '-=0.5');
