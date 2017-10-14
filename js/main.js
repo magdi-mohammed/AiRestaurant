@@ -2,6 +2,10 @@
 $(document).ready(function () {
     "use strict";
     
+    $(document).on('click', function () {
+        $(document).scrollBy(400, 0);
+    });
+    
     $('.section-info .dish img').parallax();
     
     var mainSection = $('.main-section'),
@@ -555,8 +559,8 @@ $(document).ready(function () {
     
     footerTimeLine
             .from($('footer .logo'), 0.5, {y: -20, autoAlpha: 0})
-            .staggerFrom($('footer .links li'), 1, {y: -20, autoAlpha: 0}, 0.1)
-            .staggerFrom($('footer .social-media li'), 1, {y: -20, autoAlpha: 0}, 0.1)
+            .staggerFrom($('footer .links li'), 0.3, {y: -20, autoAlpha: 0}, 0.1)
+            .staggerFrom($('footer .social-media li'), 0.3, {y: -20, autoAlpha: 0}, 0.1)
             .from($('footer .copyrights'), 1, {y: -20, autoAlpha: 0});
     
     
